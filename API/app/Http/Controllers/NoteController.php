@@ -6,12 +6,19 @@ use Illuminate\Http\Request;
 
 use API\Http\Requests;
 use API\Http\Controllers\Controller;
+use Illuminate\Routing\Route;
 use API\Note;
 class NoteController extends Controller
 {
     public function __construct(){
         $this->middleware('cors');
+        $this->beforeFilter('@find', ['only' => ['show','update','destroy']]);
     }
+
+    public function find(Route $route){
+        $this->note = Note::find($route->getParameter('notes'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -56,7 +63,7 @@ class NoteController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json($this->note);
     }
 
     /**
@@ -79,7 +86,9 @@ class NoteController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->note->fill($request->all());
+        $this->note->save();
+        return response()->json(["mensaje"=>"Actualizada"]);
     }
 
     /**

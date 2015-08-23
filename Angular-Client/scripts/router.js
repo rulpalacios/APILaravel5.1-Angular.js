@@ -11,6 +11,10 @@ angular.module('Client',['ngResource','ngRoute'])
 			templateUrl: 'views/note/create.html',
 			controller: 'CreateNoteCtrl'
 		})
+		.when('/notes/edit/:id',{
+			templateUrl: 'views/note/create.html',
+			controller: 'EditNoteCtrl'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

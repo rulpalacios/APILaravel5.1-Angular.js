@@ -15,4 +15,19 @@ angular.module('Client')
 				$location.path('/notes');	
 			},1000);
 		};
+	})
+	.controller('EditNoteCtrl',function($scope, NoteResource, $location, $timeout, $routeParams){
+		$scope.title="Editar Nota";
+		$scope.button="Actualizar";
+		$scope.Note=NoteResource.get({
+			id: $routeParams.id
+		});
+
+		$scope.saveNote = function(){
+			NoteResource.update($scope.Note);
+			Materialize.toast('Nota Actualizada.',5000,'green accent-4');
+			$timeout(function(){
+				$location.path('/notes');	
+			},1000);
+		}
 	});
