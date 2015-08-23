@@ -7,6 +7,10 @@ angular.module('Client',['ngResource','ngRoute'])
 			templateUrl: 'views/note/index.html',
 			controller: 'IndexNoteCtrl'
 		})
+		.when('/notes/new',{
+			templateUrl: 'views/note/create.html',
+			controller: 'CreateNoteCtrl'
+		})
 		.otherwise({
 			redirectTo: '/'
 		});

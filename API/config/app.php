@@ -143,6 +143,7 @@ return [
         API\Providers\AppServiceProvider::class,
         API\Providers\EventServiceProvider::class,
         API\Providers\RouteServiceProvider::class,
+        Barryvdh\Cors\ServiceProvider::class,
 
     ],
 
