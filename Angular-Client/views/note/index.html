@@ -1,1 +1,29 @@
-<p>Bienvenidos :d</p>
+<div class="input-field">
+    <i class="material-icons prefix">search</i>
+    <input placeholder="Buscar" type="text" ng-model="search">
+</div>
+        	
+
+
+<div class="row">
+    <div ng-repeat="Note in Notes | filter:search" class="col s3 m3">
+        <div class="card amber darken-4">
+            <div class="card-content white-text">
+              <span class="card-title">{{Note.name}}</span>
+              <p>{{Note.description}}</p>
+            </div>
+            <div class="card-action">
+              <a href="#"><i class="material-icons">edit</i></a>
+              <a href="#"><i class="material-icons">delete</i></a>
+            </div>
+        </div>
+    </div>
+</div> 
+
+
+
+  <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
+    <a href="#/notes/new" class="btn-floating btn-large waves-effect waves-light red">
+      <i class="large material-icons">add</i>
+    </a>
+  </div>
