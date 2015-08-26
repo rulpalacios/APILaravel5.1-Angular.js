@@ -99,6 +99,7 @@ class NoteController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->note->delete();
+        return response()->json(["mensaje"=>"Borrada"]);
     }
 }
